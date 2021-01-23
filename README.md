@@ -3,6 +3,10 @@
 They write html tables through the command-line straight to the server.
 Hats off to them. For the rest of us, HtmlTable is a great help to our work.
 
+## Instalação
+
+```composer require flsouto/htmltable```
+
 ## Utilização básica
 
 Cria e renderiza uma tabela com atributos, colunas e dados.
