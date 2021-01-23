@@ -1,0 +1,22 @@
+{
+  "name": "flsouto/htform",
+  "description": "Library for building html tables without pain",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Fabio Souto",
+      "email": "fabiolimasouto@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "keywords"  : ["forms","html","data","processing","request","http"],
+  "require": {
+    "php" : "^7.3"
+  },
+  "autoload" :{
+    "psr-0" : {
+      "FlSouto\\" : "."
+    }
+  }
+
+}
