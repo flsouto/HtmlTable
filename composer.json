@@ -8,7 +8,7 @@
       "email": "fabiolimasouto@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "keywords"  : ["forms","html","data","processing","request","http"],
   "require": {
     "php" : "^7.2"
