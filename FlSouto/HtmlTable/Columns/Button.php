@@ -16,6 +16,7 @@ class Button extends Column
     protected $label;
     protected $url;
     protected $newtab = false;
+    protected $confirm = '';
 
     function init()
     {
@@ -56,6 +57,11 @@ class Button extends Column
         return $this;
     }
 
+    function confirm($message){
+        $this->confirm = $message;
+        return $this;
+    }
+
     function render(Data $data)
     {
         if ($this->url) {
@@ -63,6 +69,10 @@ class Button extends Column
                 $js = "window.open('$this->url','_blank')";
             } else {
                 $js = "window.location.href='$this->url'";
+            }
+            if($this->confirm){
+                $confirm = str_replace(['"',"'"],['&quot;',"\\'"],$this->confirm);
+                $js = "if(confirm('$confirm')){ $js }";
             }
             $this->input->attrs->set('onClick', $js);
         }
