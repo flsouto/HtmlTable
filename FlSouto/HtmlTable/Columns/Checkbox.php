@@ -23,10 +23,13 @@ class Checkbox extends Column
     {
         $this->inputable = new Inputable($this);
 
+        $cb_class = $this->table->attrs->get('id').'_'.str_replace(['[',']'],['_',''],$this->key);
+
         $this->input = new In;
         $this->input->attrs->merge([
             'type' => 'checkbox',
             'name' => $this->inputable->name(),
+            'class' => $cb_class,
             'checked' => function () {
                 return !empty($this->inputable->value($this->td->data));
             }
@@ -36,9 +39,12 @@ class Checkbox extends Column
 
         $this->sorter = null;
         $this->sortable = false;
-        $this->heading = '&nbsp;';
+
+        $js = "document.querySelectorAll('input[class=\'$cb_class\']:checked').length > 0 ? [...document.getElementsByClassName('$cb_class')].map( (el) => { el.checked = this.checked } ) : [...document.getElementsByClassName('$cb_class')].map( (el) => { el.checked = this.checked } )";
+        $this->heading = '<input autocomplete="off" type="checkbox" onClick="'.$js.'" />';
 
     }
+
 
     function render(Data $data)
     {
